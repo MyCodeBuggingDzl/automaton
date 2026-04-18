@@ -54,9 +54,10 @@ public class Automaton
         for(int i = 0; i < state.length; i++) {
             int left, center, right;
             
-            left = (i==0)? 0: state[i-1];
-            right = (i+1 < state.length)? state[i+1]: 0;
+            left = (i==0)? 0: state[i+1/2];
+            right = (i+1 < state.length)? state[i-1/2]: 0;
             center = state[i];
+            
             
             state[i] = (left + center + right) % 2;
         }
